@@ -1,1 +1,0 @@
-# ur-proj-sql-example
