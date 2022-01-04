@@ -1,0 +1,95 @@
+{
+  "main": {
+    "id": "8b3a404b3c2a08bb",
+    "type": "split",
+    "children": [
+      {
+        "id": "256152d7c8bef45f",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "readme.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "f7d2583be097d08d",
+    "type": "split",
+    "children": [
+      {
+        "id": "72f0f1f4b3514d99",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "674294f063c21f1a",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "bce858a1c94f7101",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 500
+  },
+  "right": {
+    "id": "b93a65560ebe6bbd",
+    "type": "split",
+    "children": [
+      {
+        "id": "0a2482508b8b0e37",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e92ae5d5db694cdc",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "readme.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "256152d7c8bef45f",
+  "lastOpenFiles": [
+    "readme.md",
+    "readme/HowToImportSchema-MySqlWorkbench.gif"
+  ]
+}

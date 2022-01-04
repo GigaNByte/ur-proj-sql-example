@@ -1,0 +1,22 @@
+
+
+
+
+
+## How to import schema and create query:
+
+<hr></hr>
+
+
+### MySql Workbench:
+
+
+
+![](./readme/HowToImportSchema-MySqlWorkbench.gif)
+
+
+<hr></hr>
+### PGAdmin v4:
+
+
+![](./readme/HowToImportSchema-Postgre.gif)
