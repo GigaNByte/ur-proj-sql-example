@@ -22,7 +22,7 @@ Select * from  blooddb.patients   where blooddb.patients.name like '%a';
 //Wybierz wszystkie transfuzje ze wszystkich szpitali oprocz szpitala o id 3 
 //Select all transfusions of all hospitals excluding hospital of id 3
 
-
+//wybierz   imie pacjeta i id pacjenta i adres szpitala do ktorego zostal przypisany
 //Select patient name and patient id and hospital address of patient assigned hospital in descenting order by amount of blood transfered in each (group by) hospital  
 //(inner join)
 
