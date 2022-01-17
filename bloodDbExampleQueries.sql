@@ -8,9 +8,11 @@ Select patients.* from patients where patients.bloodTypeId IN (Select id from bl
 Select all patients and donors with blood gropup A- and 0+
 */
 
-SELECT donors.id ,donors.name, donors.surname, donors.bloodTypeId FROM donors where donors.bloodTypeId IN (Select id from blood where blood.fullName='A-' or  blood.fullName='0+' )
+SELECT donors.id ,donors.name, donors.surname, donors.bloodTypeId FROM donors
+where donors.bloodTypeId IN (Select id from blood where blood.fullName='A-' or  blood.fullName='0+' )
 UNION
-Select patients.id ,patients.name , patients.surname, patients.bloodTypeId from patients where patients.bloodTypeId IN (Select id from blood where blood.fullName='A-' or  blood.fullName='0+' );
+Select patients.id ,patients.name , patients.surname, patients.bloodTypeId from patients
+where patients.bloodTypeId IN (Select id from blood where blood.fullName='A-' or  blood.fullName='0+' );
 
 /*
 Select all patients that begins with 'a'
@@ -47,7 +49,7 @@ Select patient name and patient id and hospital address, hospital id of patients
 select patients.id,patients.name,patients.surname,hospitals.address from patients
 inner join hospitals on hospitals.id = patients.hospitalId
 order by (Select count(transfusions.bloodTransferedMl) from transfusions
-    inner join hospitals on hospitals.id = transfusions.hospitalId ) desc
+inner join hospitals on hospitals.id = transfusions.hospitalId ) desc
 
 
 /*
@@ -76,7 +78,8 @@ left join transfusions on transfusions.patientId = patients.id where transfusion
 /*
 count how many patients are in every hospital
  */
-Select hospitals.*,count(*) as "sum of patients" from patients inner join hospitals on hospitals.id = patients.hospitalId group by hospitals.id
+Select hospitals.*,count(*) as "sum of patients"
+from patients inner join hospitals on hospitals.id = patients.hospitalId group by hospitals.id
 
 /*
 count how many patients and donors are assigned to hospital of id 3

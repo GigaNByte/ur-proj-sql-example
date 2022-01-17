@@ -66,6 +66,8 @@ ALTER TABLE blood_blood
 ADD FOREIGN KEY (patientBloodId) REFERENCES blood(id);
 ALTER TABLE patients
 ADD FOREIGN KEY (hospitalId) REFERENCES hospitals (id);
+ALTER TABLE patients
+ADD FOREIGN KEY (bloodTypeId) REFERENCES blood (id);
 ALTER TABLE transfusions
 ADD FOREIGN KEY (patientId) REFERENCES patients (id);
 ALTER TABLE transfusions

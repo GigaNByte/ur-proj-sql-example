@@ -1,3 +1,4 @@
+
 delete transfusions from transfusions
 inner join patients on patients.id = transfusions.patientId
 inner join donors on donors.id = transfusions.donorId

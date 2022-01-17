@@ -1,0 +1,96 @@
+{
+  "main": {
+    "id": "4142cbc6ed0dab32",
+    "type": "split",
+    "children": [
+      {
+        "id": "b63c778564c8b3dc",
+        "type": "leaf",
+        "state": {
+          "type": "image",
+          "state": {
+            "file": "Zrzut ekranu 2022-01-17 140653.jpg"
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "610d09e2feb9e25f",
+    "type": "split",
+    "children": [
+      {
+        "id": "71ad1c1068bc5d95",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "eb33116308fc5203",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "5f63aff305066b71",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "85a0c8cc41efc383",
+    "type": "split",
+    "children": [
+      {
+        "id": "1a7c0c0c7d4afdd8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0f70003467497d9a",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Zrzut ekranu 2022-01-17 140653.jpg",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "b63c778564c8b3dc",
+  "lastOpenFiles": [
+    "Zrzut ekranu 2022-01-17 140653.jpg",
+    "transfusionsfromhospital3 1.jpg",
+    "blood.jpg",
+    "blood_blood.jpg",
+    "HowToImportSchema-Postgre.gif.md"
+  ]
+}
