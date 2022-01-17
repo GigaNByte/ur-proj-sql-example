@@ -20,3 +20,5 @@ This codebase constists of MySql and Postgre schemas and example queries of few 
 
 
 ![](./readme/HowToImportSchema-Postgre.gif)
+
+

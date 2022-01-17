@@ -1,12 +1,10 @@
 /*
-Wybierz wszystkich pacjentów i dawców z grupa krwi a- i 0+
 Select all patients and donors with blood gropup A- and 0+
 */
 create view patientsWithAB as
 Select patients.* from patients where patients.bloodTypeId IN (Select id from blood where blood.type='AB');
 
 /*
-Wybierz wszystkich pacjentów i dawców z grupa krwi a- i 0+
 Select all patients and donors with blood gropup A- and 0+
 */
 create view patientsAndDonorsWithANegAndOPos as
@@ -17,7 +15,6 @@ Select patients.id ,patients.name , patients.surname, patients.bloodTypeId from 
 where patients.bloodTypeId IN (Select id from blood where blood.fullName='A-' or  blood.fullName='0+' );
 
 /*
-wybierz wszystkie pacjenów zaczynajcych się na litere a
 Select all patients that begins with 'a'
 */
 create view patientsFemale as
@@ -25,7 +22,6 @@ Select * from  patients   where patients.name like '%a';
 
 
 /*
-Wybierz wszystkich pacjentow z bazy ze szpitala o id 2 korzy otrzymali  mniej niż X ml
 select all patients from hospital of id 2 that their blood was transfused less than X ml
 */
 
@@ -35,7 +31,6 @@ inner join hospitals on patients.hospitalId = hospitals.id
 where  hospitals.id = 2 and patients.recieviedBloodMl <= 1500
 
 /*
-Wybierz dane transfuzji i  adresy szpitali w ktorym dokonano transfuzji w okresie dat od X do X
 Select adresses of hospitals where transfusions had been done between date X to date X
 */
 create view transfusionsBetween20210808And20210809 as
@@ -44,7 +39,6 @@ inner join transfusions on transfusions.HospitalId = hospitals.id
 where transfusions.date between "2021-08-08" and "2021-08-09"
 
 /*
-Wybierz wszystkie transfuzje ze wszystkich szpitali oprocz szpitala o id 3
 Select all transfusions of all hospitals excluding hospital of id 3
 */
 create view transfusionsFromHospital3 as
@@ -115,13 +109,35 @@ left join patients on  patients.hospitalId = hospitals.id
 left join donors on  donors.hospitalId = hospitals.id
 where  donors.bloodTypeId = (Select id from blood where blood.fullName='AB+')  and patients.bloodTypeId = (Select id from blood where blood.fullName='AB+')
 
-
-
 /*
-Wybierz  pacjentów i sumę ich przyjetej krwi  z tabeli transfuzji
 (Utility Query)
 */
 create view patientsTransferedBloodSummary as
 Select patients.id ,transfusions.bloodTransferedMl from patients
 inner join transfusions on patients.id = transfusions.patientId
 group by patients.id
+
+
+/*Create procedure to move transfusions records older than one month to historical table*/
+CREATE  PROCEDURE `MoveToOldtransfusions`()
+BEGIN
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    BEGIN
+        ROLLBACK;
+        RESIGNAL;
+    END;
+    CREATE TABLE IF NOT EXISTS oldTransfusions (
+       id integer UNIQUE NOT NULL PRIMARY KEY auto_increment,
+       patientId integer NOT NULL,
+       donorId integer NOT NULL,
+       date date NOT NULL,
+       hospitalId integer NOT NULL,
+       bloodTransferedMl float NOT NULL
+    );
+    START TRANSACTION;
+    insert into oldTransfusions
+    Select transfusions.*  from transfusions
+    where transfusions.date < DATE("2022-01-15" - INTERVAL 1 MONTH);
+    delete from transfusions where transfusions.date < DATE("2022-01-15" - INTERVAL 1 MONTH);
+    COMMIT;
+END
