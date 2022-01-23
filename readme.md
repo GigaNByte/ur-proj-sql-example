@@ -366,7 +366,7 @@ Utility Queries (Delete, Update) used to generate consistent dataset :
 <hr>
 
 
-![](./readme/countpatientsanddonorsofhospital3 3.jpg)
+![](./readme/countpatientsanddonorsofhospital33.jpg)
 
 ![](./readme/Pastedimage20220117140349.png)
 
@@ -376,7 +376,7 @@ Utility Queries (Delete, Update) used to generate consistent dataset :
 <b>14 Count how many patients and donors are assigned to hospital of id 3 with blood type AB+</b>
 <hr>
 
-![](./readme/countpatientsanddonorsofhospital3abpositive 1 11.jpg)
+![](./readme/countpatientsanddonorsofhospital3abpositive111.jpg)
 
 ![](./readme/Pastedimage20220117140408.png)
 
