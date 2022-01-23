@@ -10,18 +10,14 @@ This codebase consists of SQL schemas and example queries of few tables that pro
   
 ![](./readme/HowToImportSchema-MySqlWorkbench.gif)  
   
-  <div style="page-break-after: always; visibility: hidden">
-\pagebreak
-</div>
+  
 <hr>
 
 ### PGAdmin v4:  
   
   
 ![](./readme/HowToImportSchema-Postgre.gif)
-<div style="page-break-after: always; visibility: hidden">
-\pagebreak
-</div>
+
 
 # Schema overview
 <hr>
@@ -37,9 +33,7 @@ BloodDb schema consists of:
 	<li>6 one to many relations</li>
 	<li>1 many to many relations</li>
 </ul>
-<div style="page-break-after: always; visibility: hidden">
-\pagebreak
-</div>
+
 
 # Tables and relations overview
 <hr>
@@ -65,9 +59,7 @@ Fields:
 </ul>
 
 
-<div style="page-break-after: always; visibility: hidden">
-\pagebreak
-</div>
+
 
 ### Blood_Blood
 
@@ -95,9 +87,7 @@ Fields
 </ul>
 
 
-<div style="page-break-after: always; visibility: hidden">
-\pagebreak
-</div>
+
 
 ### Hospitals
 <hr>
@@ -118,9 +108,7 @@ Fields
 <li>district -city district of hospital</li>
 </ul>
 
-<div style="page-break-after: always; visibility: hidden">
-\pagebreak
-</div>
+
 
 ### Patients
 <hr>
@@ -145,9 +133,7 @@ Fields
 <li>neededBloodMl - float value of neededBlood in Ml ( field for future usage )</li>
 <li>hospitalId - id of assigned hospital</li>
 </ul>
-<div style="page-break-after: always; visibility: hidden">
-\pagebreak
-</div>
+
 
 ### Donors
 <hr>
@@ -174,9 +160,7 @@ Fields
 </ul>
 
 
-<div style="page-break-after: always; visibility: hidden">
-\pagebreak
-</div>
+
 
 ### Transfusions
 <hr>
@@ -201,9 +185,7 @@ By using procedure "MoveToOldtransfusions" as CRON job (executes commands at spe
 
 ![[./readme/Pasted image 20220117135318.png]]
 
-<div style="page-break-after: always; visibility: hidden">
-\pagebreak
-</div>
+
 
 ### Relations
 <hr>
@@ -216,9 +198,7 @@ All mentioned relations with foregin keys are defined below
 
 
 
-<div style="page-break-after: always; visibility: hidden">
-\pagebreak
-</div>
+
 
 # Mock data  generation steps
 <hr>
@@ -238,9 +218,7 @@ Utility Queries (Delete, Update) used to generate consistent dataset :
 
 
 
-<div style="page-break-after: always; visibility: hidden">
-\pagebreak
-</div>
+
 
 # Example Queries/Views
 <hr>
@@ -253,9 +231,7 @@ Utility Queries (Delete, Update) used to generate consistent dataset :
 
 ![[./readme/Pasted image 20220117135529.png]]
 
-<div style="page-break-after: always; visibility: hidden">
-\pagebreak
-</div>
+
 
 <b>2.Select all patients and donors with blood gropup A- and 0+ (union example)</b>
 <hr>
@@ -264,9 +240,7 @@ Utility Queries (Delete, Update) used to generate consistent dataset :
 ![[./readme/patientsanddonorswithanegandopos 1.jpg]]
 ![[./readme/Pasted image 20220117135615.png]]
 
-<div style="page-break-after: always; visibility: hidden">
-\pagebreak
-</div>
+
 
 
 <b>3.Select all patients that begins with 'a'</b>
@@ -274,9 +248,7 @@ Utility Queries (Delete, Update) used to generate consistent dataset :
 
 ![[./readme/patientsfemale 1.jpg]]
 ![[./readme/Pasted image 20220117135652.png]]
-<div style="page-break-after: always; visibility: hidden">
-\pagebreak
-</div>
+
 
 <b>4. Select all patients from hospital of id 2 that their blood was transfused less than 1500 ml</b>
  <hr>
@@ -284,9 +256,7 @@ Utility Queries (Delete, Update) used to generate consistent dataset :
 ![[./readme/patientslessthan1500recieviedbloodfromhospital2 1.jpg]]
 ![[./readme/Pasted image 20220117135640.png]]
 
-<div style="page-break-after: always; visibility: hidden">
-\pagebreak
-</div>
+
 
 
 <b>5. Select transfusions and addresses  of hospitals where transfusions had been done between date X to date X</b>
@@ -296,9 +266,7 @@ Utility Queries (Delete, Update) used to generate consistent dataset :
 ![[./readme/Pasted image 20220117135732.png]]
 
 
-<div style="page-break-after: always; visibility: hidden">
-\pagebreak
-</div>
+
 
 <b>6.Select all transfusions of all hospitals excluding hospital of id 3</b>
 <hr>
@@ -307,9 +275,7 @@ Utility Queries (Delete, Update) used to generate consistent dataset :
 ![[./readme/Pasted image 20220117135743.png]]
 
 
-<div style="page-break-after: always; visibility: hidden">
-\pagebreak
-</div>
+
 
 
 <b>7. Select patient name and patient id and hospital address, hospital id of patients assigned hospital in descending order by amount of blood transfered in each hospital  </b>
@@ -320,9 +286,7 @@ Utility Queries (Delete, Update) used to generate consistent dataset :
 
 ![[./readme/Pasted image 20220117135808.png]]
 
-<div style="page-break-after: always; visibility: hidden">
-\pagebreak
-</div>
+
 
 
 <b>8. Select hospital address, patient name associated with patient of id 23</b>
@@ -333,9 +297,7 @@ Utility Queries (Delete, Update) used to generate consistent dataset :
 ![[./readme/Pasted image 20220117135823.png]]
 
 
-<div style="page-break-after: always; visibility: hidden">
-\pagebreak
-</div>
+
 
 
 <b>9. Select transfusion date, patient name of all patients even if patients didnt had a transfusion (left join example)</b>
@@ -346,9 +308,7 @@ Utility Queries (Delete, Update) used to generate consistent dataset :
 ![[./readme/Pasted image 20220117140243.png]]
 ![[./readme/Pasted image 20220117135911.png]]
 
-<div style="page-break-after: always; visibility: hidden">
-\pagebreak
-</div>
+
 
 
 <b>10.Select transfusion date, patient name of all patients that had a transfusion  (inner join example)</b>
@@ -360,9 +320,7 @@ Utility Queries (Delete, Update) used to generate consistent dataset :
 
 ![[./readme/Pasted image 20220117140021.png]]
 
-<div style="page-break-after: always; visibility: hidden">
-\pagebreak
-</div>
+
 
 
 <b>11. Select transfusion date, patient name of all patients that didnt had a transfusion ( left null join example)</b>
@@ -372,9 +330,7 @@ Utility Queries (Delete, Update) used to generate consistent dataset :
  ![[./readme/Pasted image 20220117140214.png]]
 ![[./readme/Pasted image 20220117140107.png]]
 
-<div style="page-break-after: always; visibility: hidden">
-\pagebreak
-</div>
+
 
 
 <b>12. Count how many patients are in every hospital</b>
@@ -384,9 +340,7 @@ Utility Queries (Delete, Update) used to generate consistent dataset :
 ![[./readme/hospitalsstats 1.jpg]]
 ![[./readme/Pasted image 20220117140059.png]]
 
-<div style="page-break-after: always; visibility: hidden">
-\pagebreak
-</div>
+
 
 
 <b>13. Count how many patients and donors are assigned to hospital of id 3  
@@ -396,9 +350,7 @@ Utility Queries (Delete, Update) used to generate consistent dataset :
 ![[./readme/countpatientsanddonorsofhospital3 3.jpg]]
 ![[./readme/Pasted image 20220117140349.png]]
 
-<div style="page-break-after: always; visibility: hidden">
-\pagebreak
-</div>
+
 
 
 <b>14 Count how many patients and donors are assigned to hospital of id 3 with blood type AB+</b>
