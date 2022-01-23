@@ -198,7 +198,7 @@ By using procedure "MoveToOldtransfusions" as CRON job (executes commands at spe
 
 All mentioned relations with foregin keys are defined below
 
-![[./readme/"Pasted image 20220117135219.png"]]
+![["./readme/Pasted image 20220117135219.png"]]
 
 
 
