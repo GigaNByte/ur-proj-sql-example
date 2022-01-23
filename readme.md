@@ -22,6 +22,7 @@ This codebase consists of SQL schemas and example queries of few tables that pro
 # Schema overview
 <hr>
 
+
 ![[./readme/ERD.jpg]]
 
 
@@ -41,6 +42,7 @@ BloodDb schema consists of:
 ## Blood
 
 ![[./readme/Pasted image 20220117130135.png]]
+
 ![[./readme/blood.jpg]]
 
 Table represents all possible combinations of antigens and D antibodies of human blood
@@ -115,6 +117,7 @@ Fields
 
 
 ![[./readme/Pasted image 20220117130240.png]]
+
 ![[./readme/patients.jpg]]
 
 
@@ -142,6 +145,7 @@ Stores data about donors. Table is related with transfusions,hospitals, blood ta
 
 
 ![[./readme/Pasted image 20220117130250.png]]
+
 ![[./readme/donors.jpg]]
 
 Fields
@@ -169,6 +173,7 @@ Holds records about transfusions between patients and donors in specific hospita
 
 
 ![[./readme/Pasted image 20220117130221.png]]
+
 ![[./readme/transfusions.jpg]]
 
 <ul>
@@ -262,7 +267,9 @@ Utility Queries (Delete, Update) used to generate consistent dataset :
 <b>5. Select transfusions and addresses  of hospitals where transfusions had been done between date X to date X</b>
 <hr>
 
+
 ![[./readme/transfusionsbetween20210808and20210809 1.jpg]]
+
 ![[./readme/Pasted image 20220117135732.png]]
 
 
@@ -271,7 +278,9 @@ Utility Queries (Delete, Update) used to generate consistent dataset :
 <b>6.Select all transfusions of all hospitals excluding hospital of id 3</b>
 <hr>
 
+
 ![[./readme/transfusionsfromhospital3 1.jpg]]
+
 ![[./readme/Pasted image 20220117135743.png]]
 
 
@@ -293,7 +302,9 @@ Utility Queries (Delete, Update) used to generate consistent dataset :
 <hr>
 
 
+
 ![[./readme/Zrzut ekranu 2022-01-17 140653.jpg]]
+
 ![[./readme/Pasted image 20220117135823.png]]
 
 
@@ -305,8 +316,11 @@ Utility Queries (Delete, Update) used to generate consistent dataset :
 
 
 ![[./readme/patientstransfusionsleftjoindemo 1.jpg]]
+
 ![[./readme/Pasted image 20220117140243.png]]
+
 ![[./readme/Pasted image 20220117135911.png]]
+
 
 
 
@@ -316,6 +330,7 @@ Utility Queries (Delete, Update) used to generate consistent dataset :
 
 
 ![[./readme/patientstransfusionsinnerjoindemo 1.jpg]]
+
 ![[./readme/Pasted image 20220117140249.png]]
 
 ![[./readme/Pasted image 20220117140021.png]]
@@ -327,7 +342,9 @@ Utility Queries (Delete, Update) used to generate consistent dataset :
 <hr>
 
 ![[./readme/patientstransfusionsnulljoindemo 1.jpg]]
+
  ![[./readme/Pasted image 20220117140214.png]]
+ 
 ![[./readme/Pasted image 20220117140107.png]]
 
 
@@ -338,6 +355,7 @@ Utility Queries (Delete, Update) used to generate consistent dataset :
 <hr>
 
 ![[./readme/hospitalsstats 1.jpg]]
+
 ![[./readme/Pasted image 20220117140059.png]]
 
 
@@ -347,7 +365,9 @@ Utility Queries (Delete, Update) used to generate consistent dataset :
 (inner join will also work in this example)</b>
 <hr>
 
+
 ![[./readme/countpatientsanddonorsofhospital3 3.jpg]]
+
 ![[./readme/Pasted image 20220117140349.png]]
 
 
@@ -357,6 +377,7 @@ Utility Queries (Delete, Update) used to generate consistent dataset :
 <hr>
 
 ![[./readme/countpatientsanddonorsofhospital3abpositive 1 1 1.jpg]]
+
 ![[./readme/Pasted image 20220117140408.png]]
 
 
