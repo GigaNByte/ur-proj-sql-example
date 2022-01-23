@@ -41,7 +41,7 @@ BloodDb schema consists of:
 
 ## Blood
 
-![[./readme/Pasted image 20220117130135.png]]
+![[./readme/Pastedimage20220117130135.png]]
 
 ![[./readme/blood.jpg]]
 
@@ -67,7 +67,7 @@ Fields:
 
 <hr>
 
-![[./readme/Pasted image 20220117130206.png]]
+![[./readme/Pastedimage20220117130206.png]]
 
 ![[./readme/blood_blood.jpg]]
 
@@ -75,7 +75,7 @@ Before transfusion, testing is done between the donated blood and patient to che
 Table contains blood group compatibility table :
 
 
-![[./readme/Pasted image 20220117131138.png]]
+![[./readme/Pastedimage20220117131138.png]]
 
 Table in schema is implemented as many to many relation between same table : "blood"
 Technically "blood_blood" table looks like transfer table 
@@ -95,9 +95,9 @@ Fields
 <hr>
 
 
-![[./readme/Pasted image 20220117130231.png]]
+![[./readme/Pastedimage20220117130231.png]]
 
-![[./readme/hospitals 1.jpg]]
+![[./readme/hospitals1.jpg]]
 
 This simple table stores all registered hospitals. All patients and Donors are assigned by one to many relation to the one of hospital. Transfusion table is also connected by the same relation.
 
@@ -116,7 +116,7 @@ Fields
 <hr>
 
 
-![[./readme/Pasted image 20220117130240.png]]
+![[./readme/Pastedimage20220117130240.png]]
 
 ![[./readme/patients.jpg]]
 
@@ -144,7 +144,7 @@ Fields
 Stores data about donors. Table is related with transfusions,hospitals, blood table by one to many relation
 
 
-![[./readme/Pasted image 20220117130250.png]]
+![[./readme/Pastedimage20220117130250.png]]
 
 ![[./readme/donors.jpg]]
 
@@ -172,7 +172,7 @@ Fields
 Holds records about transfusions between patients and donors in specific hospital (one to many ).
 
 
-![[./readme/Pasted image 20220117130221.png]]
+![[./readme/Pastedimage20220117130221.png]]
 
 ![[./readme/transfusions.jpg]]
 
@@ -188,7 +188,7 @@ Holds records about transfusions between patients and donors in specific hospita
 
 By using procedure "MoveToOldtransfusions" as CRON job (executes commands at specific dates and times) transfusion table can behave like a temporary table with the newest records (for ex. recent month). Older transfusions would be stored in old_transfusions table.
 
-![[./readme/Pasted image 20220117135318.png]]
+![[./readme/Pastedimage20220117135318.png]]
 
 
 
@@ -198,7 +198,7 @@ By using procedure "MoveToOldtransfusions" as CRON job (executes commands at spe
 
 All mentioned relations with foregin keys are defined below
 
-![["./readme/Pasted image 20220117135219.png"]]
+![["./readme/Pastedimage20220117135219.png"]]
 
 
 
@@ -210,7 +210,7 @@ All mentioned relations with foregin keys are defined below
 
 Dataset was generated using a <a href=" https://www.mockaroo.com/">Mockaroo</a> online random data generator
 
-![[./readme/Pasted image 20220117142103.png]]
+![[./readme/Pastedimage20220117142103.png]]
 
 It can export generated data to CSV, SQL format.
 Some tables like "transfusions" needed to be verified for example in terms of blood type compatibility. Also transferred blood and 
@@ -218,7 +218,7 @@ Some tables like "transfusions" needed to be verified for example in terms of bl
 
 Utility Queries (Delete, Update) used to generate consistent dataset :
 
-![[./readme/Pasted image 20220117141614.png]]
+![[./readme/Pastedimage20220117141614.png]]
 
 
 
@@ -232,9 +232,9 @@ Utility Queries (Delete, Update) used to generate consistent dataset :
 <b>1. Select all patients with blood type AB  </b>
 <hr>
 
-![[./readme/countpatientsanddonorsofhospital3abpositive 1.jpg]]
+![[./readme/countpatientsanddonorsofhospital3abpositive1.jpg]]
 
-![[./readme/Pasted image 20220117135529.png]]
+![[./readme/Pastedimage20220117135529.png]]
 
 
 
@@ -242,8 +242,8 @@ Utility Queries (Delete, Update) used to generate consistent dataset :
 <hr>
 
 
-![[./readme/patientsanddonorswithanegandopos 1.jpg]]
-![[./readme/Pasted image 20220117135615.png]]
+![[./readme/patientsanddonorswithanegandopos1.jpg]]
+![[./readme/Pastedimage20220117135615.png]]
 
 
 
@@ -251,15 +251,15 @@ Utility Queries (Delete, Update) used to generate consistent dataset :
 <b>3.Select all patients that begins with 'a'</b>
 <hr>
 
-![[./readme/patientsfemale 1.jpg]]
-![[./readme/Pasted image 20220117135652.png]]
+![[./readme/patientsfemale1.jpg]]
+![[./readme/Pastedimage20220117135652.png]]
 
 
 <b>4. Select all patients from hospital of id 2 that their blood was transfused less than 1500 ml</b>
  <hr>
 
-![[./readme/patientslessthan1500recieviedbloodfromhospital2 1.jpg]]
-![[./readme/Pasted image 20220117135640.png]]
+![[./readme/patientslessthan1500recieviedbloodfromhospital21.jpg]]
+![[./readme/Pastedimage20220117135640.png]]
 
 
 
@@ -268,9 +268,9 @@ Utility Queries (Delete, Update) used to generate consistent dataset :
 <hr>
 
 
-![[./readme/transfusionsbetween20210808and20210809 1.jpg]]
+![[./readme/transfusionsbetween20210808and202108091.jpg]]
 
-![[./readme/Pasted image 20220117135732.png]]
+![[./readme/Pastedimage20220117135732.png]]
 
 
 
@@ -279,9 +279,9 @@ Utility Queries (Delete, Update) used to generate consistent dataset :
 <hr>
 
 
-![[./readme/transfusionsfromhospital3 1.jpg]]
+![[./readme/transfusionsfromhospital31.jpg]]
 
-![[./readme/Pasted image 20220117135743.png]]
+![[./readme/Pastedimage20220117135743.png]]
 
 
 
@@ -291,9 +291,9 @@ Utility Queries (Delete, Update) used to generate consistent dataset :
 <hr>
 
 
-![[./readme/hospitalsandpatientsorderedbybloodranking 1.jpg]]
+![[./readme/hospitalsandpatientsorderedbybloodranking1.jpg]]
 
-![[./readme/Pasted image 20220117135808.png]]
+![[./readme/Pastedimage20220117135808.png]]
 
 
 
@@ -305,7 +305,7 @@ Utility Queries (Delete, Update) used to generate consistent dataset :
 
 ![[./readme/Zrzut ekranu 2022-01-17 140653.jpg]]
 
-![[./readme/Pasted image 20220117135823.png]]
+![[./readme/Pastedimage20220117135823.png]]
 
 
 
@@ -315,11 +315,11 @@ Utility Queries (Delete, Update) used to generate consistent dataset :
 <hr>
 
 
-![[./readme/patientstransfusionsleftjoindemo 1.jpg]]
+![[./readme/patientstransfusionsleftjoindemo1.jpg]]
 
-![[./readme/Pasted image 20220117140243.png]]
+![[./readme/Pastedimage20220117140243.png]]
 
-![[./readme/Pasted image 20220117135911.png]]
+![[./readme/Pastedimage20220117135911.png]]
 
 
 
@@ -329,11 +329,11 @@ Utility Queries (Delete, Update) used to generate consistent dataset :
 <hr>
 
 
-![[./readme/patientstransfusionsinnerjoindemo 1.jpg]]
+![[./readme/patientstransfusionsinnerjoindemo1.jpg]]
 
-![[./readme/Pasted image 20220117140249.png]]
+![[./readme/Pastedimage20220117140249.png]]
 
-![[./readme/Pasted image 20220117140021.png]]
+![[./readme/Pastedimage20220117140021.png]]
 
 
 
@@ -341,11 +341,11 @@ Utility Queries (Delete, Update) used to generate consistent dataset :
 <b>11. Select transfusion date, patient name of all patients that didnt had a transfusion ( left null join example)</b>
 <hr>
 
-![[./readme/patientstransfusionsnulljoindemo 1.jpg]]
+![[./readme/patientstransfusionsnulljoindemo1.jpg]]
 
- ![[./readme/Pasted image 20220117140214.png]]
+ ![[./readme/Pastedimage20220117140214.png]]
  
-![[./readme/Pasted image 20220117140107.png]]
+![[./readme/Pastedimage20220117140107.png]]
 
 
 
@@ -354,9 +354,9 @@ Utility Queries (Delete, Update) used to generate consistent dataset :
 
 <hr>
 
-![[./readme/hospitalsstats 1.jpg]]
+![[./readme/hospitalsstats1.jpg]]
 
-![[./readme/Pasted image 20220117140059.png]]
+![[./readme/Pastedimage20220117140059.png]]
 
 
 
@@ -368,7 +368,7 @@ Utility Queries (Delete, Update) used to generate consistent dataset :
 
 ![[./readme/countpatientsanddonorsofhospital3 3.jpg]]
 
-![[./readme/Pasted image 20220117140349.png]]
+![[./readme/Pastedimage20220117140349.png]]
 
 
 
@@ -376,8 +376,8 @@ Utility Queries (Delete, Update) used to generate consistent dataset :
 <b>14 Count how many patients and donors are assigned to hospital of id 3 with blood type AB+</b>
 <hr>
 
-![[./readme/countpatientsanddonorsofhospital3abpositive 1 1 1.jpg]]
+![[./readme/countpatientsanddonorsofhospital3abpositive 1 11.jpg]]
 
-![[./readme/Pasted image 20220117140408.png]]
+![[./readme/Pastedimage20220117140408.png]]
 
 
