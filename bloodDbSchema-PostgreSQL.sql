@@ -1,22 +1,23 @@
-CREATE SCHEMA blooddb ;
-use blooddb;
-CREATE TABLE donors (
-    id  NOT NULL UNIQUE PRIMARY KEY serial,
+CREATE OR REPLACE PROCEDURE blooddb_schema() 
+
+BEGIN
+CREATE TABLE IF NOT EXISTS donors (
+    id int NOT NULL UNIQUE PRIMARY KEY ,
     name character varying(25) NOT NULL,
     surname character varying(25) NOT NULL,
-    bloodTypeid eger NOT NULL,
+    bloodTypeId integer NOT NULL,
     donatedBloodMl float,
     telephoneNumber character varying(25) NOT NULL,
-    hospitalid eger NOT NULL,
+    hospitalId integer NOT NULL,
     address character varying(60) NOT NULL,
-    isHonoraryDonor bit NOT NULL
+    isHonoraryDonor boolean NOT NULL
 );
 
-CREATE TABLE patients (
-    id  UNIQUE NOT NULL PRIMARY KEY serial,
+CREATE TABLE IF NOT EXISTS patients (
+    id INT UNIQUE NOT NULL PRIMARY KEY ,
     address character varying(100) NOT NULL,
-    bloodTypeid  NOT NULL,
-    hospitalid  NOT NULL,
+    bloodTypeId INT NOT NULL,
+    hospitalId INT NOT NULL,
     name character varying(25) NOT NULL,
     postcode character varying(20) NOT NULL,
     recieviedBloodMl float,
@@ -25,35 +26,35 @@ CREATE TABLE patients (
     neededBloodMl float
 );
 
-CREATE TABLE hospitals (
-    id  UNIQUE NOT NULL PRIMARY KEY serial,
+CREATE TABLE IF NOT EXISTS hospitals (
+    id INT UNIQUE NOT NULL PRIMARY KEY ,
     address character varying(60) NOT NULL,
     postcode character varying(20) NOT NULL,
     name character varying(25) NOT NULL,
     district character varying(25) NOT NULL
 );
 
-CREATE TABLE blood (
+CREATE TABLE IF NOT EXISTS blood (
     type character varying(2) NOT NULL,
-    isRhesus bit NOT NULL,
-    id eger UNIQUE NOT NULL PRIMARY KEY serial,
+    isRhesus boolean NOT NULL,
+    id integer UNIQUE NOT NULL PRIMARY KEY ,
     fullName character varying(4) NOT NULL
 );
 
-CREATE TABLE transfusions (
-    id eger UNIQUE NOT NULL PRIMARY KEY serial,
-    patientid eger NOT NULL,
-    donorid eger NOT NULL,
+CREATE TABLE IF NOT EXISTS transfusions (
+    id integer UNIQUE NOT NULL PRIMARY KEY ,
+    patientId integer NOT NULL,
+    donorId integer NOT NULL,
     date date NOT NULL,
-    hospitalid eger NOT NULL,
+    hospitalId integer NOT NULL,
     bloodTransferedMl float NOT NULL
 );
 
-CREATE TABLE blood_blood (
-    id  UNIQUE NOT NULL PRIMARY KEY serial,
-    donorBloodid eger,
-    patientBloodid eger,
-    isTransferable bit NOT NULL
+CREATE TABLE IF NOT EXISTS blood_blood (
+    id INT UNIQUE NOT NULL PRIMARY KEY ,
+    donorBloodId integer,
+    patientBloodId integer,
+    isTransferable boolean NOT NULL
 );
 
 ALTER TABLE donors
@@ -695,3 +696,5 @@ INSERT INTO transfusions (id, patientId, donorId, date, hospitalId, bloodTransfe
 INSERT INTO transfusions (id, patientId, donorId, date, hospitalId, bloodTransferedMl) VALUES (996,20,16,'2021-09-20',3,622);
 INSERT INTO transfusions (id, patientId, donorId, date, hospitalId, bloodTransferedMl) VALUES (998,23,29,'2021-08-28',4,3746);
 INSERT INTO transfusions (id, patientId, donorId, date, hospitalId, bloodTransferedMl) VALUES (1000,21,9,'2021-11-08',4,316);
+END;
+CALL blooddb_schema()

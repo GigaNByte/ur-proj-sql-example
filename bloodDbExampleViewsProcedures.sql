@@ -127,11 +127,11 @@ BEGIN
         RESIGNAL;
     END;
     CREATE TABLE IF NOT EXISTS oldTransfusions (
-       id integer UNIQUE NOT NULL PRIMARY KEY auto_increment,
-       patientId integer NOT NULL,
-       donorId integer NOT NULL,
+       id eger UNIQUE NOT NULL PRIMARY KEY serial,
+       patientid eger NOT NULL,
+       donorid eger NOT NULL,
        date date NOT NULL,
-       hospitalId integer NOT NULL,
+       hospitalid eger NOT NULL,
        bloodTransferedMl float NOT NULL
     );
     START TRANSACTION;
