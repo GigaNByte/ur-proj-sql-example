@@ -9,7 +9,7 @@
         "state": {
           "type": "image",
           "state": {
-            "file": "Zrzut ekranu 2022-01-17 140653.jpg"
+            "file": "Pastedimage20220117135529.png"
           }
         }
       }
@@ -51,7 +51,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 578
   },
   "right": {
     "id": "85a0c8cc41efc383",
@@ -67,7 +67,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Zrzut ekranu 2022-01-17 140653.jpg",
+                "file": "Pastedimage20220117135529.png",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,10 +87,15 @@
   },
   "active": "b63c778564c8b3dc",
   "lastOpenFiles": [
-    "Zrzut ekranu 2022-01-17 140653.jpg",
-    "transfusionsfromhospital3 1.jpg",
+    "Pastedimage20220117135529.png",
+    "Pastedimage20220117130240.png",
+    "HowToImportSchema-Postgre.gif",
+    "countpatientsanddonorsofhospital3abpositive111.jpg",
     "blood.jpg",
     "blood_blood.jpg",
-    "HowToImportSchema-Postgre.gif.md"
+    "patientsfemale 1.jpg",
+    "patientstransfusionsnulljoindemo1.jpg",
+    "Zrzut ekranu 2022-01-17140653.jpg",
+    "Zrzut ekranu 2022-01-17 140653.jpg"
   ]
 }
