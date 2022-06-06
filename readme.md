@@ -49,8 +49,8 @@ Prerequisites:
 </ul>
 Import schema and run composer init and php server in blooddb-app directory:
 
-![[Pasted image 20220606034621.png]]
-![[Pasted image 20220606034656.png]]
+![](./readme/Pastedimage20220606034621.png)
+![](./readme/Pastedimage20220606034656.png)
 
 
 # Schema overview
