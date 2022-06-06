@@ -127,17 +127,18 @@ BEGIN
         RESIGNAL;
     END;
     CREATE TABLE IF NOT EXISTS oldTransfusions (
-       id eger UNIQUE NOT NULL PRIMARY KEY serial,
-       patientid eger NOT NULL,
-       donorid eger NOT NULL,
+       id integer UNIQUE NOT NULL PRIMARY KEY serial,
+       patientid integer NOT NULL,
+       donorid integer NOT NULL,
        date date NOT NULL,
-       hospitalid eger NOT NULL,
+       hospitalid integer NOT NULL,
        bloodTransferedMl float NOT NULL
     );
+
     START TRANSACTION;
-    insert into oldTransfusions
-    Select transfusions.*  from transfusions
+    INSERT INTO oldTransfusions
+    SELECT transfusions.*  from transfusions
     where transfusions.date < DATE("2022-01-15" - INTERVAL 1 MONTH);
-    delete from transfusions where transfusions.date < DATE("2022-01-15" - INTERVAL 1 MONTH);
+    DELETE from transfusions where transfusions.date < DATE("2022-01-15" - INTERVAL 1 MONTH);
     COMMIT;
 END

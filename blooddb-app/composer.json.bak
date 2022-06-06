@@ -1,0 +1,14 @@
+{
+    "name": "gigauser/blooddb-app",
+    "type": "project",
+    "require": {
+        "simplon/postgres": "^0.2.6"
+    },
+    "license": "Mit",
+    "authors": [
+        {
+            "name": "GigaNByte",
+            "email": "karol.saj0@gmail.com"
+        }
+    ]
+}

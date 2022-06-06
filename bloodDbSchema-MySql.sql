@@ -1,22 +1,22 @@
 CREATE SCHEMA blooddb ;
 use blooddb;
 CREATE TABLE donors (
-    id  NOT NULL UNIQUE PRIMARY KEY serial,
+    id int NOT NULL UNIQUE PRIMARY KEY auto_increment,
     name character varying(25) NOT NULL,
     surname character varying(25) NOT NULL,
-    bloodTypeid eger NOT NULL,
+    bloodTypeId integer NOT NULL,
     donatedBloodMl float,
     telephoneNumber character varying(25) NOT NULL,
-    hospitalid eger NOT NULL,
+    hospitalId integer NOT NULL,
     address character varying(60) NOT NULL,
     isHonoraryDonor bit NOT NULL
 );
 
 CREATE TABLE patients (
-    id  UNIQUE NOT NULL PRIMARY KEY serial,
+    id INT UNIQUE NOT NULL PRIMARY KEY auto_increment,
     address character varying(100) NOT NULL,
-    bloodTypeid  NOT NULL,
-    hospitalid  NOT NULL,
+    bloodTypeId INT NOT NULL,
+    hospitalId INT NOT NULL,
     name character varying(25) NOT NULL,
     postcode character varying(20) NOT NULL,
     recieviedBloodMl float,
@@ -26,7 +26,7 @@ CREATE TABLE patients (
 );
 
 CREATE TABLE hospitals (
-    id  UNIQUE NOT NULL PRIMARY KEY serial,
+    id INT UNIQUE NOT NULL PRIMARY KEY auto_increment,
     address character varying(60) NOT NULL,
     postcode character varying(20) NOT NULL,
     name character varying(25) NOT NULL,
@@ -36,23 +36,23 @@ CREATE TABLE hospitals (
 CREATE TABLE blood (
     type character varying(2) NOT NULL,
     isRhesus bit NOT NULL,
-    id eger UNIQUE NOT NULL PRIMARY KEY serial,
+    id integer UNIQUE NOT NULL PRIMARY KEY auto_increment,
     fullName character varying(4) NOT NULL
 );
 
 CREATE TABLE transfusions (
-    id eger UNIQUE NOT NULL PRIMARY KEY serial,
-    patientid eger NOT NULL,
-    donorid eger NOT NULL,
+    id integer UNIQUE NOT NULL PRIMARY KEY auto_increment,
+    patientId integer NOT NULL,
+    donorId integer NOT NULL,
     date date NOT NULL,
-    hospitalid eger NOT NULL,
+    hospitalId integer NOT NULL,
     bloodTransferedMl float NOT NULL
 );
 
 CREATE TABLE blood_blood (
-    id  UNIQUE NOT NULL PRIMARY KEY serial,
-    donorBloodid eger,
-    patientBloodid eger,
+    id INT UNIQUE NOT NULL PRIMARY KEY auto_increment,
+    donorBloodId integer,
+    patientBloodId integer,
     isTransferable bit NOT NULL
 );
 

@@ -1,0 +1,12 @@
+{
+    "name": "giganbyte/blooddb-app",
+    "type": "project",
+    "require": {},
+    "license": "Mit",
+    "authors": [
+        {
+            "name": "GigaNByte GigaMoswin",
+            "email": "karol.saj0@gmail.com"
+        }
+    ]
+}
