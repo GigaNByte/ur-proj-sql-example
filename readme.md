@@ -4,7 +4,7 @@ This codebase consists of SQL schemas and example queries of few tables that pro
 
 
 ## Project Files
-![[Pasted image 20220606033206.png]]
+![](./readme/Pastedimage20220606033206.png))
 ### MySQL version
 <ul>
 <li>bloodDbSchema-MySql.sql </li>
@@ -20,7 +20,7 @@ Designed for blooddb-app (contains DDL DDM DQL TCL commands):
 </ul>
 
 ### Blooddb-app
-![[Pasted image 20220606033847.png]]
+![](./readme/Pastedimage20220606033847.png))
 
 
   
