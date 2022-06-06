@@ -697,15 +697,19 @@ begin
  
     
     create  MATERIALIZED view patients_view as
-    select p.id,p.name,p.surname,p.address,p.postcode,p.telephone_number,p.needed_blood_ml ,sum(t.blood_transfered_ml) as blood_transfered_ml, h.name as hospital_name, b.full_name ,h.id as hospital_id,b.id as blood_id
+    select p.id,p.name,p.surname,p.address,p.postcode,p.telephone_number,
+	p.needed_blood_ml ,sum(t.blood_transfered_ml) as blood_transfered_ml, 
+	h.name as hospital_name, b.full_name ,h.id as hospital_id,b.id as blood_id
 	from patients as p 
     inner join hospitals as h on h.id = p.hospital_id
     left join transfusions as t on t.patient_id = p.id --Count the transfusions for each patient even if they are have zero blod_transfered_ml 
     inner join blood as b on b.id = p.blood_type_id 
-    group by p.id,h.name ,b.full_name,p.name,p.surname,p.address,p.postcode,p.telephone_number,p.needed_blood_ml,h.id,b.id;--every group by possible due to the sum function (agregate function)
+    group by p.id,h.name ,b.full_name,p.name,p.surname,p.address,p.postcode,p.telephone_number,p.needed_blood_ml,h.id,b.id;
 
     create MATERIALIZED view donors_view as
-    select d.id,d.name,d.surname,d.address,d.telephone_number ,sum(t.blood_transfered_ml) as blood_transfered_ml, h.name as hospital_name, b.full_name ,h.id as hospital_id,b.id as blood_id
+    select d.id,d.name,d.surname,d.address,d.telephone_number ,
+	sum(t.blood_transfered_ml) as blood_transfered_ml, h.name as hospital_name,
+	 b.full_name ,h.id as hospital_id,b.id as blood_id
 	from donors as d 
     inner join hospitals as h on h.id = d.hospital_id
     left join transfusions as t on t.donor_id = d.id --Count the transfusions for each patient even if they are have zero blod_transfered_ml 
@@ -713,15 +717,19 @@ begin
     group by d.id,h.name ,b.full_name,d.name,d.surname,d.address,d.telephone_number,h.id,b.id; --every group by possible due to the sum function (agregate function)
 
     create  MATERIALIZED view hospitals_view as
-    select h.id , h.name, h.address,h.postcode, h.district ,sum(t.blood_transfered_ml) as blood_transfered_ml, count(distinct p.id) as patients_count, count(distinct d.id) as donors_count
+    select h.id , h.name, h.address,h.postcode, h.district ,sum(t.blood_transfered_ml) as blood_transfered_ml, 
+	count(distinct p.id) as patients_count, count(distinct d.id) as donors_count
 	from hospitals as h 
     left join transfusions as t on t.hospital_id = h.id 
     left join patients as p on p.hospital_id = h.id
     left join donors as d on d.hospital_id = h.id
-    group by h.id,h.name, h.address,h.postcode, h.district; --every group by possible due to the sum function (agregate function)
+    group by h.id,h.name, h.address,h.postcode, h.district; 
+	--every group by possible due to the sum function (agregate function)
 
     create  MATERIALIZED view transfusions_view as
-    select t.id, CONCAT  (p.name, ' ', p.surname) AS "patient_fullname" , bp.full_name as "patient_blood_type_name", CONCAT  (d.name, ' ', d.surname) AS "donor_fullname",bp.full_name as "donor_blood_type_name" ,t.blood_transfered_ml,t.date,p.id as patient_id,d.id as donor_id,h.id as hospital_id
+    select t.id, CONCAT  (p.name, ' ', p.surname) AS "patient_fullname" , 
+	bp.full_name as "patient_blood_type_name", CONCAT  (d.name, ' ', d.surname) AS "donor_fullname",
+	bp.full_name as "donor_blood_type_name" ,t.blood_transfered_ml,t.date,p.id as patient_id,d.id as donor_id,h.id as hospital_id
 	from transfusions as t 
     inner join hospitals as h on t.hospital_id = h.id 
     inner join patients as p on t.patient_id = p.id

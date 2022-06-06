@@ -60,7 +60,7 @@ Import schema and run composer init and php server in blooddb-app directory:
 ![](./readme/ERD.jpg)
 
 ### Postgres Version
-![[eerd_Posttgres.jpg]]
+![](./readme/eerd_Posttgres.jpg)
 
 BloodDb schema consists of:
 <ul>
@@ -411,9 +411,9 @@ Utility Queries (Delete, Update) used to generate consistent dataset :
 
 # Postgres views
 
-![[Pasted image 20220606035105.png]]
-![[Pasted image 20220606035132.png]]
+![](./readme/Pastedimage20220606035105.png)
+![](./readme/Pastedimage20220606035132.png)
 
 ### Triggers and functions for refreshing materialized views
 
-![[Pasted image 20220606035233.png]]
+![](./readme/Pastedimage20220606035233.png)
