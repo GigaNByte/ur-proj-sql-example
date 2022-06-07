@@ -88,19 +88,18 @@ class Donor
         return "donor.php?id=" . $this->id;
     }
 
-    public static function create($name, $surname, $address, $postcode, $telephone, $blood_type_id, $hospital_id)
+    public static function create($name, $surname, $address, $telephone, $blood_type_id, $hospital_id)
     {
         //escape all function arguments to prevent sql injection
         $name = pg_escape_string($name);
         $surname = pg_escape_string($surname);
         $address = pg_escape_string($address);
-        $postcode = pg_escape_string($postcode);
         $telephone = pg_escape_string($telephone);
         $blood_type_id = pg_escape_string($blood_type_id);
         $hospital_id = pg_escape_string($hospital_id);
 
 
-        $sql =  "Insert into donors (id, name,surname,address,postcode,telephone_number,blood_type_id,hospital_id) values ( DEFAULT, '$name','$surname','$address','$postcode','$telephone','$blood_type_id','$hospital_id')";
+        $sql =  "Insert into donors (id, name,surname,address,telephone_number,blood_type_id,hospital_id) values ( DEFAULT, '$name','$surname','$address','$telephone','$blood_type_id','$hospital_id')";
         $result = pg_query(DatabaseConnection::getInstance()->getConnection(), $sql);
         return $result;
     }

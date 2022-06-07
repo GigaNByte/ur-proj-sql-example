@@ -828,7 +828,18 @@ CREATE  FUNCTION tg_refresh_patients_view()
 CREATE OR REPLACE PROCEDURE createTransfusion(vpatient_id integer, vdonor_id integer,vhospital_id integer, vblood_transfered_ml float)
 	language plpgsql 
 	AS $$
+	DECLARE vneeded_blood_ml float;
 	BEGIN
+		
+		SELECT p.needed_blood_ml INTO vneeded_blood_ml FROM patients as p WHERE p.id = vpatient_id;
+
+		IF vblood_transfered_ml > vneeded_blood_ml THEN
+			vneeded_blood_ml := vblood_transfered_ml - vneeded_blood_ml;
+		ELSE
+			vneeded_blood_ml := 0;
+		END IF;
+
+
 		IF (  SELECT COUNT(1)   from donors as d cross join patients as p
          inner join blood_blood as bb on bb.donor_blood_id = d.blood_type_id  and p.blood_type_id = bb.patient_blood_id
 		inner join hospitals as h on h.id = d.hospital_id
@@ -837,9 +848,17 @@ CREATE OR REPLACE PROCEDURE createTransfusion(vpatient_id integer, vdonor_id int
 		and vhospital_id = d.hospital_id and vpatient_id = p.id and   bb.is_transferable
 		= true)
 		THEN
-			INSERT INTO transfusions(patient_id,donor_id, blood_transfered_ml,hospital_id)VALUES(vpatient_id,vdonor_id,vblood_transfered_ml,vhospital_id);
+			INSERT INTO transfusions(patient_id,donor_id, blood_transfered_ml,hospital_id)
+			VALUES(vpatient_id,vdonor_id,vneeded_blood_ml,vhospital_id);
+
+			UPDATE patients SET needed_blood_ml = vneeded_blood_ml WHERE id = vpatient_id;
+
+
 		ELSE 
 			RAISE EXCEPTION 'The transfusion is not allowed';
 		END IF;
 	END;$$;
+   
+
+
    

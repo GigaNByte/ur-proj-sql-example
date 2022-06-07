@@ -150,11 +150,6 @@ if (isset($_POST['order'])) {
                     <tr>
                         <td>
 
-                            <label for="Postcode" class="pr-5">Postcode</label>
-                            <input type="text" name="postcode" class="input" placeholder="Postcode">
-                        </td>
-                        <td>
-
                             <label for="Telephone Number" class="pr-5">Telephone Number</label>
                             <input type="text" name="telephone_number" class="input" placeholder="Telephone Number">
                         </td>

@@ -47,7 +47,7 @@ Prerequisites:
 <li>PHP: 7.4 with Composer</li>
 <li>Postgres server: 14 </li>
 </ul>
-Import schema and run composer init and php server in blooddb-app directory:
+Import Postgres schema  and run composer init and php server in blooddb-app directory:
 
 ![](./readme/Pastedimage20220606034621.png)
 ![](./readme/Pastedimage20220606034656.png)
@@ -418,3 +418,26 @@ Utility Queries (Delete, Update) used to generate consistent dataset :
 ### Triggers and functions for refreshing materialized views
 
 ![](./readme/Pastedimage20220606035233.png)
+
+### Procedure to handle correct transfusions
+In php code exists similar select to get all potential donors from the same hospital as patient based on blood groups ids and ordered by from the most similar antibodies.
+Procedure below also updates needed_blood_ml value of patient to whom blood was transfused.
+
+
+![[Pastedimage20220608013019.png]]
+
+
+# App Views
+
+### Create/Update/Delete Hospital
+
+![[Hospitals.gif]]
+
+### Create/Update/Delete  Patient
+
+![[Patients.gif]]
+### Create/Update/Delete Donor
+![[Donors.gif]]
+
+### Create/Update/Delete Transfusion
+![[Transfusions.gif]]

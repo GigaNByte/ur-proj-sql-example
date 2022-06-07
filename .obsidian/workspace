@@ -7,9 +7,11 @@
         "id": "b7234877f1174d48",
         "type": "leaf",
         "state": {
-          "type": "image",
+          "type": "markdown",
           "state": {
-            "file": "readme/Pastedimage20220117141614.png"
+            "file": "readme.md",
+            "mode": "source",
+            "source": false
           }
         }
       }
@@ -67,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "readme/Pastedimage20220117141614.png",
+                "file": "readme.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,15 +89,15 @@
   },
   "active": "b7234877f1174d48",
   "lastOpenFiles": [
-    "readme/Pastedimage20220117141614.png",
     "readme.md",
-    "readme/Pastedimage20220117142103.png",
-    "readme/Zrzut ekranu 2022-06-06 032818.jpg",
+    "readme/Donors.gif",
+    "Pastedimage20220608013019.png",
     "readme/Zrzut ekranu 2022-01-17140653.jpg",
+    "readme/Zrzut ekranu 2022-06-06 032818.jpg",
+    "readme/Pastedimage20220117141614.png",
+    "readme/Pastedimage20220117142103.png",
     "readme/Pastedimage20220117140243.png",
     "readme/Pastedimage20220117140349.png",
-    "readme/patients.jpg",
-    "readme/patientsfemale 1.jpg",
-    "readme/patientsanddonorswithanegandopos1.jpg"
+    "readme/patients.jpg"
   ]
 }
