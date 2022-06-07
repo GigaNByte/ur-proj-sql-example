@@ -44,7 +44,7 @@ begin
 		id SERIAL PRIMARY KEY ,
 		patient_id integer NOT NULL,
 		donor_id integer NOT NULL,
-		date date NOT NULL,
+		date date NOT NULL DEFAULT now(),
 		hospital_id integer NOT NULL,
 		blood_transfered_ml float NOT NULL DEFAULT 0.0
 	);
@@ -729,14 +729,14 @@ begin
     create  MATERIALIZED view transfusions_view as
     select t.id, CONCAT  (p.name, ' ', p.surname) AS "patient_fullname" , 
 	bp.full_name as "patient_blood_type_name", CONCAT  (d.name, ' ', d.surname) AS "donor_fullname",
-	bp.full_name as "donor_blood_type_name" ,t.blood_transfered_ml,t.date,p.id as patient_id,d.id as donor_id,h.id as hospital_id
+	bd.full_name as "donor_blood_type_name" ,t.blood_transfered_ml,t.date,p.id as patient_id,d.id as donor_id,h.id as hospital_id , h.name as hospital_name
 	from transfusions as t 
     inner join hospitals as h on t.hospital_id = h.id 
     inner join patients as p on t.patient_id = p.id
     inner join donors as d on t.donor_id = d.id
     inner join blood as bp on bp.id = p.blood_type_id
     inner join blood as bd on bd.id = d.blood_type_id
-    group by t.id,p.name, p.surname,bp.full_name,d.name, d.surname,bp.full_name,t.blood_transfered_ml,t.date,p.id,d.id,h.id;
+    group by t.id,p.name, p.surname,bp.full_name,d.name, d.surname,bd.full_name,t.blood_transfered_ml,t.date,p.id,d.id,h.id,h.name;
 
 
     create  MATERIALIZED view blood_view as
@@ -746,9 +746,6 @@ begin
     create  MATERIALIZED view blood_blood_view as
     select bb.id, bb.donor_blood_id, bb.patient_blood_id, bb.is_transferable
     from blood_blood as bb;
-
-
-
 
     PERFORM setval('blood_id_seq', (SELECT MAX(id) from "blood"));
     PERFORM setval('blood_blood_id_seq', (SELECT MAX(id) from "blood_blood"));
@@ -824,3 +821,25 @@ CREATE  FUNCTION tg_refresh_patients_view()
     CREATE TRIGGER tg_refresh_donors_view AFTER INSERT OR UPDATE OR DELETE
     ON donors
     FOR EACH STATEMENT EXECUTE FUNCTION tg_refresh_donors_view();
+
+
+
+
+CREATE OR REPLACE PROCEDURE createTransfusion(vpatient_id integer, vdonor_id integer,vhospital_id integer, vblood_transfered_ml float)
+	language plpgsql 
+	AS $$
+	BEGIN
+		IF (  SELECT COUNT(1)   from donors as d cross join patients as p
+         inner join blood_blood as bb on bb.donor_blood_id = d.blood_type_id  and p.blood_type_id = bb.patient_blood_id
+		inner join hospitals as h on h.id = d.hospital_id
+        inner join blood as b on b.id = d.blood_type_id
+        where  bb.is_transferable and p.id = vpatient_id and d.hospital_id = p.hospital_id and vdonor_id = d.id
+		and vhospital_id = d.hospital_id and vpatient_id = p.id and   bb.is_transferable
+		= true)
+		THEN
+			INSERT INTO transfusions(patient_id,donor_id, blood_transfered_ml,hospital_id)VALUES(vpatient_id,vdonor_id,vblood_transfered_ml,vhospital_id);
+		ELSE 
+			RAISE EXCEPTION 'The transfusion is not allowed';
+		END IF;
+	END;$$;
+   

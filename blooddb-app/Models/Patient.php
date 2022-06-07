@@ -125,7 +125,6 @@ class Patient
         $postcode = pg_escape_string($postcode);
         $telephone = pg_escape_string($telephone);
         $hospital_id = pg_escape_string($hospital_id);
-        var_dump($needed_blood_ml);
         $needed_blood_ml = pg_escape_string($needed_blood_ml);
 
         $sql = "UPDATE patients SET name = '$name', surname = '$surname', address = '$address', postcode = '$postcode', telephone_number = '$telephone', hospital_id = '$hospital_id', needed_blood_ml = '$needed_blood_ml' WHERE id = $id";

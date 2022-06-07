@@ -7,11 +7,6 @@ require_once 'core.php';
 
 //perform query call patient_view_test
 
-
-
-
-
-
 $name = $_POST['name'];
 $surname = $_POST['surname'];
 $address = $_POST['address'];

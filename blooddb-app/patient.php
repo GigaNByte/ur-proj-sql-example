@@ -95,5 +95,48 @@ $patient = Patient::fetchById($_GET['id']);
 
             </tbody>
         </table>
-        <?php
-        require_once "./partials/footer.php";
+    </div>
+</div>
+<div class="card has-table my-5">
+    <header class="card-header">
+        <p class="card-header-title">
+            <span class="icon"><i class="fa-solid fa-pen"></i></span>
+            Add Transfusion
+        </p>
+    </header>
+    <div class="card-content">
+        <table>
+            <thead>
+
+            </thead>
+            <tbody>
+
+                <form action="createTransfusion.php" method="POST">
+                    <tr>
+
+                        <input type="hidden" name="id" class="input" value="<?php echo $patient->getId() ?>">
+                        <td>
+                            <label for="blood_transfered_ml" class="pr-5">Blood amount</label>
+
+                            <input type="number" name="blood_transfered_ml" class="input" placeholder="0.0"><br>
+                            <small>If blood amount is larger than neeeded blood for this patient, needeed blood
+                                amount
+                                will be transfered</small>
+                        </td>
+                        <td>
+                            <label for="button" class="pr-5">Search for donors</label>
+                            <button type="submit" class="button large blue --jb-modal" data-target="sample-modal-2">
+                                <span class="icon"><i class="fa-solid fa-pen-to-square"></i></span>
+                            </button><br>
+                            <small>Donor list will be generated after next step</small>
+                        </td>
+                    </tr>
+
+                </form>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+<?php
+require_once "./partials/footer.php";

@@ -166,6 +166,34 @@ class Donor
     }
 
 
+    public static function getCandidates($id, $limit, $page)
+    {
+        $limit = pg_escape_string($limit);
+        $page = pg_escape_string($page);
+        $id = pg_escape_string($id);
+        $offset = ($page - 1) * $limit;
+
+        $sql = "SELECT  d.id as id ,d.name as name ,d.surname as surname ,d.address as address , b.full_name as blood_full_name,d.telephone_number as telephone_number , h.name as hospital_name ,d.hospital_id as hospital_id,d.blood_type_id as donor_blood_id   from donors as d cross join patients as p
+        inner join blood_blood as bb on bb.donor_blood_id = d.blood_type_id  and p.blood_type_id = bb.patient_blood_id
+		inner join hospitals as h on h.id = d.hospital_id
+        inner join blood as b on b.id = d.blood_type_id
+        where  bb.is_transferable and p.id = $id and d.hospital_id = p.hospital_id
+        order by d.blood_type_id > p.blood_type_id , d.blood_type_id";
+
+
+
+        $result = pg_query(DatabaseConnection::getInstance()->getConnection(), $sql);
+        $donors = array();
+        while ($row = pg_fetch_assoc($result)) {
+
+            $donors[] =   new Donor($row['id'], $row['name'], $row['surname'], $row['address'], $row['telephone_number'], 0, $row['hospital_name'], $row['blood_full_name'], $row['hospital_id'], $row['donor_blood_id']);
+        }
+        return $donors;
+    }
+
+
+
+
     //returns paginated donors html links
     public static function getPaginationLinks($limit, $page)
     {

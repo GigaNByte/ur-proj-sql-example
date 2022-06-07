@@ -38,9 +38,6 @@ if (isset($_POST['order'])) {
                     Recieved Blood Ml</option>
                 <option value="needed_blood_ml" <?php if ($orderBy == 'needed_blood_ml') echo 'selected'; ?>>Needed
                     Blood Ml</option>
-
-
-
             </select>
             <select name="order" class="bg-white mx-5" onchange="this.form.submit()">
                 <option value="DESC" <?php if ($order == 'DESC') echo 'selected'; ?>>Descending</option>

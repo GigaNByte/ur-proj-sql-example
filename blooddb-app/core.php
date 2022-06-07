@@ -8,3 +8,4 @@ require_once './Models/Patient.php';
 require_once './Models/Blood.php';
 require_once './Models/Hospital.php';
 require_once './Models/Donor.php';
+require_once './Models/Transfusion.php';

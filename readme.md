@@ -55,6 +55,7 @@ Import schema and run composer init and php server in blooddb-app directory:
 
 # Schema overview
 <hr>
+
 ### Mysql Version
 
 ![](./readme/ERD.jpg)
